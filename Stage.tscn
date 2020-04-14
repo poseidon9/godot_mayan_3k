@@ -215,6 +215,7 @@ position = Vector2( 1339.63, 967.879 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 position = Vector2( 251.684, 1045.6 )
+motion/sync_to_physics = true
 
 [node name="Enemies" type="Node" parent="."]
 
