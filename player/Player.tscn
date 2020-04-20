@@ -57,14 +57,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 26 ]
+"values": [ 29, 28 ]
 }
 
 [sub_resource type="Animation" id=4]
-length = 7.0
+length = 2.0
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -74,10 +74,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.25, 1.5, 2, 4.5, 4.75, 5, 5.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1.25, 4.5, 4.75, 5, 5.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 16, 17, 18, 16, 19, 20, 19, 16 ]
+"values": [ 16, 16, 19, 20, 19, 16 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -115,7 +115,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-length = 0.5
+length = 0.4
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -125,14 +125,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 26 ]
+"values": [ 28, 29 ]
 }
 
 [sub_resource type="Animation" id=8]
-length = 1.25
+length = 0.9
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -142,10 +142,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ 0, 1, 2, 3 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -192,9 +192,11 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 16
-frame = 22
+frame = 29
 
 [node name="Smoke" type="Node2D" parent="Sprite"]
+modulate = Color( 0.886275, 0.85098, 0.466667, 1 )
+self_modulate = Color( 0.937255, 0.498039, 0.423529, 1 )
 position = Vector2( 20.7312, 3.21187 )
 rotation = -1.45648
 
