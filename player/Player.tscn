@@ -149,7 +149,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-length = 1.25
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -192,7 +191,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 16
-frame = 29
+frame = 8
 
 [node name="Smoke" type="Node2D" parent="Sprite"]
 modulate = Color( 0.886275, 0.85098, 0.466667, 1 )
