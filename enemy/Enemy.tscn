@@ -128,6 +128,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "walk"
+length = 1.5
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -140,13 +141,13 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
 [sub_resource type="CanvasItemMaterial" id=4]
 
-[sub_resource type="CapsuleShape2D" id=8]
-radius = 10.4695
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 8.72613
 height = 18.2941
 
 [sub_resource type="CanvasItemMaterial" id=6]
@@ -162,7 +163,7 @@ orbit_velocity_random = 0.0
 script = ExtResource( 1 )
 
 [node name="Enabler" type="VisibilityEnabler2D" parent="."]
-position = Vector2( 16.2569, 11.0034 )
+position = Vector2( 15.8695, 13.1342 )
 scale = Vector2( 23.5056, 10.8629 )
 pause_particles = false
 
@@ -176,31 +177,32 @@ material = SubResource( 4 )
 texture = ExtResource( 2 )
 flip_h = true
 hframes = 8
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4.26166, -2.90568 )
 rotation = -6.28319
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="DetectFloorLeft" type="RayCast2D" parent="."]
-position = Vector2( -33.2868, -9.34363 )
+position = Vector2( -12.1722, -11.8619 )
 enabled = true
 cast_to = Vector2( 0, 45 )
 
 [node name="DetectWallLeft" type="RayCast2D" parent="."]
-position = Vector2( -12.1361, -0.739977 )
+position = Vector2( 9.55962, -5.38906 )
 rotation = 1.5708
 enabled = true
 cast_to = Vector2( 0, 20 )
 
 [node name="DetectWallRight" type="RayCast2D" parent="."]
-position = Vector2( 3.2788, -0.381488 )
+position = Vector2( -1.95141, -5.61169 )
 rotation = -1.5708
 enabled = true
 cast_to = Vector2( 0, 20 )
 
 [node name="DetectFloorRight" type="RayCast2D" parent="."]
-position = Vector2( 29.1987, -9.34363 )
+position = Vector2( 16.9949, -13.0242 )
 enabled = true
 cast_to = Vector2( 0, 45 )
 
@@ -220,4 +222,5 @@ texture = ExtResource( 3 )
 stream = ExtResource( 4 )
 
 [node name="SoundExplode" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 4.84279, -13.7535 )
 stream = ExtResource( 5 )
