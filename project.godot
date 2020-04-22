@@ -44,7 +44,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Platformer 2D"
+config/name="Mayan 3000"
 run/main_scene="res://Stage.tscn"
 config/icon="res://icon.png"
 target_fps="60"
