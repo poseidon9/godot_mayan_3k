@@ -128,7 +128,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "walk"
-length = 1.25
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -146,9 +145,9 @@ tracks/0/keys = {
 
 [sub_resource type="CanvasItemMaterial" id=4]
 
-[sub_resource type="CapsuleShape2D" id=5]
-radius = 13.4556
-height = 14.2002
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 10.4695
+height = 18.2941
 
 [sub_resource type="CanvasItemMaterial" id=6]
 blend_mode = 1
@@ -179,9 +178,9 @@ flip_h = true
 hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.00525069, -0.727495 )
-rotation = -1.5708
-shape = SubResource( 5 )
+position = Vector2( 4.26166, -2.90568 )
+rotation = -6.28319
+shape = SubResource( 8 )
 
 [node name="DetectFloorLeft" type="RayCast2D" parent="."]
 position = Vector2( -33.2868, -9.34363 )
@@ -222,4 +221,3 @@ stream = ExtResource( 4 )
 
 [node name="SoundExplode" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
-
