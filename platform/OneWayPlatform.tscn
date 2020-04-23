@@ -3,7 +3,7 @@
 [ext_resource path="res://platform/one_way_platform.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 100, 10 )
+extents = Vector2( 96.4817, 13.3493 )
 
 [node name="OneWayPlatform" type="StaticBody2D"]
 
@@ -14,4 +14,3 @@ texture = ExtResource( 1 )
 position = Vector2( 1.46304, -13.1672 )
 shape = SubResource( 1 )
 one_way_collision = true
-
