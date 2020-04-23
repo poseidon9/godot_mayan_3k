@@ -179,7 +179,6 @@ material = SubResource( 4 )
 texture = ExtResource( 2 )
 flip_h = true
 hframes = 8
-frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3.2127, 0.0663412 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://background/scroll_bg_sky.png" type="Texture" id=1]
 [ext_resource path="res://background/scroll_bg_cloud_1.png" type="Texture" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://background/scroll_cloud.png" type="Texture" id=12]
 [ext_resource path="res://background/scroll_cloud02.png" type="Texture" id=13]
 [ext_resource path="res://background/scroll_cloud03.png" type="Texture" id=14]
+[ext_resource path="res://background/scroll_cloud04.png" type="Texture" id=15]
+[ext_resource path="res://background/scroll_bg_fg_6tt.png" type="Texture" id=16]
 
 [node name="ParallaxBg" type="ParallaxBackground"]
 scroll_base_scale = Vector2( 0.7, 0 )
@@ -26,30 +28,49 @@ scale = Vector2( 128, 0.94 )
 texture = ExtResource( 1 )
 centered = false
 
+[node name="Mount12" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.6, 1.05 )
+
+[node name="Sprite" type="Sprite" parent="Mount12"]
+position = Vector2( 40.0844, -31.9684 )
+texture = ExtResource( 12 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 0, 0, 4096, 256 )
+
 [node name="Mount3" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.4, 1.05 )
+motion_scale = Vector2( 0.5, 1.05 )
 
 [node name="Sprite" type="Sprite" parent="Mount3"]
-position = Vector2( 0, -75 )
+position = Vector2( 29.0844, -15.9684 )
 texture = ExtResource( 12 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
 
 [node name="Mount9" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.25, 1.05 )
+motion_scale = Vector2( 0.4, 1.05 )
 
 [node name="Sprite" type="Sprite" parent="Mount9"]
-position = Vector2( 0, -35 )
+position = Vector2( 56.7124, -7.9684 )
 texture = ExtResource( 13 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
 
 [node name="Mount10" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.15, 1.05 )
+motion_scale = Vector2( 0.3, 1.05 )
 
 [node name="Sprite" type="Sprite" parent="Mount10"]
-position = Vector2( 0, 52 )
+position = Vector2( -15.5299, -2.15083 )
 texture = ExtResource( 14 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4096, 256 )
+
+[node name="Mount11" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 1.05 )
+
+[node name="Sprite" type="Sprite" parent="Mount11"]
+position = Vector2( -14.0422, 3.3615 )
+texture = ExtResource( 15 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
 
@@ -66,7 +87,7 @@ region_rect = Rect2( 0, 0, 33.0014, 509.282 )
 
 [node name="Clouds" type="ParallaxLayer" parent="."]
 position = Vector2( 0, 56 )
-motion_scale = Vector2( 0.15, 1 )
+motion_scale = Vector2( 0.1, 1 )
 motion_mirroring = Vector2( 800, 0 )
 
 [node name="Sprite1" type="Sprite" parent="Clouds"]
@@ -100,7 +121,7 @@ texture = ExtResource( 4 )
 centered = false
 
 [node name="Mount8" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.1, 0.72 )
+motion_scale = Vector2( 0.1, 0.88 )
 
 [node name="Sprite" type="Sprite" parent="Mount8"]
 position = Vector2( 0, 340 )
@@ -109,7 +130,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
 
 [node name="Mount5" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.2, 0.75 )
+motion_scale = Vector2( 0.2, 0.84 )
 
 [node name="Sprite" type="Sprite" parent="Mount5"]
 position = Vector2( 0, 353 )
@@ -118,16 +139,16 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
 
 [node name="Mount4" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.3, 0.7 )
+motion_scale = Vector2( 0.3, 0.79 )
 
 [node name="Sprite" type="Sprite" parent="Mount4"]
-position = Vector2( 0, 353 )
+position = Vector2( 0, 350 )
 texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
 
 [node name="Mount6" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.4, 0.7 )
+motion_scale = Vector2( 0.4, 0.77 )
 
 [node name="Sprite" type="Sprite" parent="Mount6"]
 position = Vector2( 0, 353 )
@@ -136,7 +157,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
 
 [node name="Mount7" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.5, 0.63 )
+motion_scale = Vector2( 0.5, 0.72 )
 
 [node name="Sprite" type="Sprite" parent="Mount7"]
 position = Vector2( 0, 353 )
@@ -145,10 +166,28 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
 
 [node name="Mount2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.65, 0.6 )
+motion_scale = Vector2( 0.65, 0.66 )
 
 [node name="Sprite" type="Sprite" parent="Mount2"]
 position = Vector2( 0, 353 )
 texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4096, 256 )
+
+[node name="Mount14" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.6, 0.63 )
+
+[node name="Sprite" type="Sprite" parent="Mount14"]
+position = Vector2( 48, 353 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4096, 256 )
+
+[node name="Mount13" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.75, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="Mount13"]
+position = Vector2( 0, 353 )
+texture = ExtResource( 16 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
