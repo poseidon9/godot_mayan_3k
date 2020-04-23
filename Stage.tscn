@@ -213,8 +213,11 @@ position = Vector2( 1099.56, 940.804 )
 [node name="OneWayPlatform13" parent="Props" instance=ExtResource( 4 )]
 position = Vector2( 1339.63, 967.879 )
 
+[node name="OneWayPlatform14" parent="Props" instance=ExtResource( 4 )]
+position = Vector2( 2141.27, 1255.03 )
+
 [node name="Player" parent="." instance=ExtResource( 7 )]
-position = Vector2( 251.684, 1045.6 )
+position = Vector2( 365.925, 1047.19 )
 
 [node name="Enemies" type="Node" parent="."]
 

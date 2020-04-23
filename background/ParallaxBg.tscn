@@ -100,7 +100,7 @@ texture = ExtResource( 4 )
 centered = false
 
 [node name="Mount8" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.1, 1.05 )
+motion_scale = Vector2( 0.1, 0.72 )
 
 [node name="Sprite" type="Sprite" parent="Mount8"]
 position = Vector2( 0, 340 )
@@ -109,7 +109,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
 
 [node name="Mount5" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.2, 1.05 )
+motion_scale = Vector2( 0.2, 0.75 )
 
 [node name="Sprite" type="Sprite" parent="Mount5"]
 position = Vector2( 0, 353 )
@@ -118,7 +118,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
 
 [node name="Mount4" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.3, 1.05 )
+motion_scale = Vector2( 0.3, 0.7 )
 
 [node name="Sprite" type="Sprite" parent="Mount4"]
 position = Vector2( 0, 353 )
@@ -127,7 +127,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
 
 [node name="Mount6" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.4, 1 )
+motion_scale = Vector2( 0.4, 0.7 )
 
 [node name="Sprite" type="Sprite" parent="Mount6"]
 position = Vector2( 0, 353 )
@@ -135,20 +135,20 @@ texture = ExtResource( 10 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
 
-[node name="Mount2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.5, 1 )
-
-[node name="Sprite" type="Sprite" parent="Mount2"]
-position = Vector2( 0, 353 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 4096, 256 )
-
 [node name="Mount7" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.65, 0.9 )
+motion_scale = Vector2( 0.5, 0.63 )
 
 [node name="Sprite" type="Sprite" parent="Mount7"]
 position = Vector2( 0, 353 )
 texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4096, 256 )
+
+[node name="Mount2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.65, 0.6 )
+
+[node name="Sprite" type="Sprite" parent="Mount2"]
+position = Vector2( 0, 353 )
+texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
