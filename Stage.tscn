@@ -252,6 +252,7 @@ position = Vector2( 3546.2, 1356.19 )
 position = Vector2( 2215.3, 1429.39 )
 
 [node name="ParallaxBg" parent="." instance=ExtResource( 6 )]
+scroll_base_scale = Vector2( 0.7, 0.1 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 12.0
