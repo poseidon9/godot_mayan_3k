@@ -125,6 +125,7 @@ shape = SubResource( 3 )
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+volume_db = -4.0
 
 [node name="Particles" type="Particles2D" parent="."]
 material = SubResource( 4 )
@@ -136,5 +137,4 @@ texture = ExtResource( 4 )
 
 [node name="Enabler" type="VisibilityEnabler2D" parent="."]
 pause_particles = false
-
 [connection signal="body_entered" from="." to="." method="_on_coin_body_enter"]
