@@ -1,0 +1,433 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://code/gd/player.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/player/robot_demo.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/gui/ingame/Background.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/gui/ingame/Portrait.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/player/osb_left.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/player/osb_fire.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/player/osb_jump.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/player/osb_right.png" type="Texture" id=8]
+[ext_resource path="res://assets/audio/sounds/sound_shoot.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/sprites/gui/ingame/Inventory_bg.png" type="Texture" id=10]
+[ext_resource path="res://assets/audio/sounds/sound_jump.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/sprites/gui/ingame/Inventory_dot.png" type="Texture" id=12]
+
+[sub_resource type="Animation" id=1]
+resource_name = "crouch"
+length = 0.01
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 22 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "falling"
+length = 0.01
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 21 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "falling_weapon"
+length = 0.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 29, 28 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 2.0
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.25, 4.5, 4.75, 5, 5.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 16, 19, 20, 19, 16 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 25 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 23, 24, 23 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.4
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 28, 29 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.9
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 1.25
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9, 5 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 1.25
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14, 5 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 8.13055
+height = 15.7524
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 2
+hframes = 16
+frame = 22
+
+[node name="Smoke" type="Node2D" parent="Sprite"]
+modulate = Color( 0.886275, 0.85098, 0.466667, 1 )
+self_modulate = Color( 0.937255, 0.498039, 0.423529, 1 )
+position = Vector2( 20.7312, 3.21187 )
+rotation = -1.45648
+
+[node name="BulletShoot" type="Position2D" parent="Sprite"]
+position = Vector2( 30.6589, 6.13176 )
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+anims/crouch = SubResource( 1 )
+anims/falling = SubResource( 2 )
+anims/falling_weapon = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/idle_weapon = SubResource( 5 )
+anims/jumping = SubResource( 6 )
+anims/jumping_weapon = SubResource( 7 )
+anims/run = SubResource( 8 )
+anims/run_weapon = SubResource( 9 )
+anims/standing_weapon_ready = SubResource( 10 )
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.729698, 12.7875 )
+shape = SubResource( 11 )
+
+[node name="SoundJump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+volume_db = -5.0
+
+[node name="SoundShoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+volume_db = 4.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="GUI" type="MarginContainer" parent="UI"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -121.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="HBoxContainer" parent="UI/GUI"]
+margin_right = 800.0
+margin_bottom = 121.0
+
+[node name="CharacterInfo" type="VBoxContainer" parent="UI/GUI/Container"]
+margin_right = 113.0
+margin_bottom = 121.0
+
+[node name="Portrait" type="MarginContainer" parent="UI/GUI/Container/CharacterInfo"]
+margin_right = 113.0
+margin_bottom = 121.0
+
+[node name="Background" type="NinePatchRect" parent="UI/GUI/Container/CharacterInfo/Portrait"]
+margin_right = 113.0
+margin_bottom = 121.0
+texture = ExtResource( 3 )
+
+[node name="Image" type="TextureRect" parent="UI/GUI/Container/CharacterInfo/Portrait"]
+margin_right = 113.0
+margin_bottom = 121.0
+texture = ExtResource( 4 )
+
+[node name="Inventory" type="HBoxContainer" parent="UI/GUI/Container"]
+margin_left = 117.0
+margin_right = 733.0
+margin_bottom = 121.0
+
+[node name="Item1" type="MarginContainer" parent="UI/GUI/Container/Inventory"]
+margin_right = 120.0
+margin_bottom = 121.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="Background" type="NinePatchRect" parent="UI/GUI/Container/Inventory/Item1"]
+margin_right = 120.0
+margin_bottom = 121.0
+texture = ExtResource( 10 )
+axis_stretch_horizontal = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/GUI/Container/Inventory/Item1"]
+margin_right = 120.0
+margin_bottom = 121.0
+
+[node name="Image" type="TextureRect" parent="UI/GUI/Container/Inventory/Item1/CenterContainer"]
+margin_left = 44.0
+margin_top = 48.0
+margin_right = 75.0
+margin_bottom = 72.0
+texture = ExtResource( 12 )
+
+[node name="Item2" type="MarginContainer" parent="UI/GUI/Container/Inventory"]
+margin_left = 124.0
+margin_right = 244.0
+margin_bottom = 121.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="Background" type="NinePatchRect" parent="UI/GUI/Container/Inventory/Item2"]
+margin_right = 120.0
+margin_bottom = 121.0
+texture = ExtResource( 10 )
+axis_stretch_horizontal = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/GUI/Container/Inventory/Item2"]
+margin_right = 120.0
+margin_bottom = 121.0
+
+[node name="Image" type="TextureRect" parent="UI/GUI/Container/Inventory/Item2/CenterContainer"]
+margin_left = 44.0
+margin_top = 48.0
+margin_right = 75.0
+margin_bottom = 72.0
+texture = ExtResource( 12 )
+
+[node name="Item3" type="MarginContainer" parent="UI/GUI/Container/Inventory"]
+margin_left = 248.0
+margin_right = 368.0
+margin_bottom = 121.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="Background" type="NinePatchRect" parent="UI/GUI/Container/Inventory/Item3"]
+margin_right = 120.0
+margin_bottom = 121.0
+texture = ExtResource( 10 )
+axis_stretch_horizontal = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/GUI/Container/Inventory/Item3"]
+margin_right = 120.0
+margin_bottom = 121.0
+
+[node name="Image" type="TextureRect" parent="UI/GUI/Container/Inventory/Item3/CenterContainer"]
+margin_left = 44.0
+margin_top = 48.0
+margin_right = 75.0
+margin_bottom = 72.0
+texture = ExtResource( 12 )
+
+[node name="Item4" type="MarginContainer" parent="UI/GUI/Container/Inventory"]
+margin_left = 372.0
+margin_right = 492.0
+margin_bottom = 121.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="Background" type="NinePatchRect" parent="UI/GUI/Container/Inventory/Item4"]
+margin_right = 120.0
+margin_bottom = 121.0
+texture = ExtResource( 10 )
+axis_stretch_horizontal = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/GUI/Container/Inventory/Item4"]
+margin_right = 120.0
+margin_bottom = 121.0
+
+[node name="Image" type="TextureRect" parent="UI/GUI/Container/Inventory/Item4/CenterContainer"]
+margin_left = 44.0
+margin_top = 48.0
+margin_right = 75.0
+margin_bottom = 72.0
+texture = ExtResource( 12 )
+
+[node name="Item5" type="MarginContainer" parent="UI/GUI/Container/Inventory"]
+margin_left = 496.0
+margin_right = 616.0
+margin_bottom = 121.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="Background" type="NinePatchRect" parent="UI/GUI/Container/Inventory/Item5"]
+margin_right = 120.0
+margin_bottom = 121.0
+texture = ExtResource( 10 )
+axis_stretch_horizontal = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/GUI/Container/Inventory/Item5"]
+margin_right = 120.0
+margin_bottom = 121.0
+
+[node name="Image" type="TextureRect" parent="UI/GUI/Container/Inventory/Item5/CenterContainer"]
+margin_left = 44.0
+margin_top = 48.0
+margin_right = 75.0
+margin_bottom = 72.0
+texture = ExtResource( 12 )
+
+[node name="Left" type="TouchScreenButton" parent="UI"]
+position = Vector2( 27.7593, 270.87 )
+scale = Vector2( 1.49157, 1.46265 )
+normal = ExtResource( 5 )
+passby_press = true
+action = "move_left"
+visibility_mode = 1
+
+[node name="Right" type="TouchScreenButton" parent="UI"]
+position = Vector2( 121.542, 271.415 )
+scale = Vector2( 1.49157, 1.46265 )
+normal = ExtResource( 8 )
+passby_press = true
+action = "move_right"
+visibility_mode = 1
+
+[node name="BottomRightAnchor" type="Control" parent="UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jump" type="TouchScreenButton" parent="UI/BottomRightAnchor"]
+position = Vector2( -98.151, -167.768 )
+scale = Vector2( 1.49157, 1.46265 )
+normal = ExtResource( 7 )
+action = "jump"
+visibility_mode = 1
+
+[node name="Fire" type="TouchScreenButton" parent="UI/BottomRightAnchor"]
+position = Vector2( -96.302, -249 )
+scale = Vector2( 1.49157, 1.46265 )
+normal = ExtResource( 6 )
+action = "shoot"
+visibility_mode = 1
