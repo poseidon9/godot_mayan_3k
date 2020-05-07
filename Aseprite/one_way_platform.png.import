@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/one_way_platform.png-85795b452902111b1fd6c4ae3e8912f3.stex"
+path="res://.import/one_way_platform.png-e1b20752bb5b644a05baaf5e93eb56c5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://aseprite/one_way_platform.png"
-dest_files=[ "res://.import/one_way_platform.png-85795b452902111b1fd6c4ae3e8912f3.stex" ]
+source_file="res://Aseprite/one_way_platform.png"
+dest_files=[ "res://.import/one_way_platform.png-e1b20752bb5b644a05baaf5e93eb56c5.stex" ]
 
 [params]
 
