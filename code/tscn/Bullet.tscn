@@ -20,6 +20,7 @@ color = Color( 1, 1, 1, 0.705882 )
 [sub_resource type="CanvasItemMaterial" id=4]
 
 [sub_resource type="CircleShape2D" id=5]
+radius = 2.99309
 
 [sub_resource type="Animation" id=6]
 length = 1.5
@@ -82,6 +83,7 @@ material = SubResource( 4 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0994415, -0.198881 )
 shape = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]

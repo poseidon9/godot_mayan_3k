@@ -19,7 +19,7 @@ func _on_Continue_pressed():
 	get_tree().change_scene("res://code/tscn/Stage.tscn")
 
 func _on_New_Game_pressed():
-	get_tree().change_scene("res://code/tscn/Stage.tscn")
+	get_tree().change_scene("res://code/tscn/Stage_prueba.tscn")
 
 func _on_Options_pressed():
 	get_tree().change_scene("res://code/tscn/Options.tscn")
