@@ -68,10 +68,10 @@ position = Vector2( 1169.44, 677.369 )
 position = Vector2( 1233.44, 677.369 )
 
 [node name="Coin13" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 924.453, 566.264 )
+position = Vector2( 938.669, 570.141 )
 
 [node name="Coin14" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 988.453, 566.264 )
+position = Vector2( 1002.67, 570.141 )
 
 [node name="Coin15" parent="Coins" instance=ExtResource( 2 )]
 position = Vector2( 983.872, 336.653 )
@@ -168,7 +168,7 @@ motion = Vector2( 100, 0 )
 cycle = 4.0
 
 [node name="OneWayPlatform3" parent="Props" instance=ExtResource( 4 )]
-position = Vector2( 953.762, 638.622 )
+position = Vector2( 960.224, 660.592 )
 
 [node name="OneWayPlatform4" parent="Props" instance=ExtResource( 4 )]
 position = Vector2( 1785.58, 1014.2 )
