@@ -20,6 +20,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 680.0
+margin_bottom = 400.0
+color = Color( 0, 0, 0, 1 )
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 120.0
 margin_top = 80.0
