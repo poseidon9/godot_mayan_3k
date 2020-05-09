@@ -4,7 +4,10 @@
     package="com.godot.game"
     android:versionCode="1"
     android:versionName="1.0"
+    android:minSDKVersion="7.1.2"
+    android:targetSdkVersion ="7.1.2"
     android:installLocation="auto" >
+
 
     <!-- Adding custom text to the manifest is fine, but do it outside the custom USER and APPLICATION BEGIN/END comments, -->
     <!-- as that gets rewritten. -->
