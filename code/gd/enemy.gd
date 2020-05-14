@@ -2,13 +2,14 @@ extends KinematicBody2D
 
 class_name Enemy
 
-
 const GRAVITY_VEC = Vector2(0, 900)
 const FLOOR_NORMAL = Vector2(0, -1)
 
 const STATE_WALKING = 0
 const STATE_KILLED = 1
 const WALK_SPEED = 70 
+
+var HEALTH = 100
 
 var linear_velocity = Vector2()
 var direction = -1
@@ -21,6 +22,7 @@ onready var DetectFloorLeft = $DetectFloorLeft
 onready var DetectWallLeft = $DetectWallLeft
 onready var DetectFloorRight = $DetectFloorRight
 onready var DetectWallRight = $DetectWallRight
+onready var CollisionShape2D = $CollisionShape2D
 onready var sprite = $Sprite
 
 func _physics_process(delta):
@@ -30,6 +32,11 @@ func _physics_process(delta):
 		linear_velocity += GRAVITY_VEC * delta
 		linear_velocity.x = direction * WALK_SPEED
 		linear_velocity = move_and_slide(linear_velocity, FLOOR_NORMAL)
+		
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			if collision.collider.name == "Player":
+				collision.collider.call("hit_by_enemy")
 
 		if not DetectFloorLeft.is_colliding() or DetectWallLeft.is_colliding():
 			direction = 1.0
@@ -47,4 +54,9 @@ func _physics_process(delta):
 		($Anim as AnimationPlayer).play(anim)
 
 func hit_by_bullet():
-	state = STATE_KILLED
+	if state != STATE_KILLED:
+		HEALTH -= 20
+
+		if HEALTH <= 0:
+			state = STATE_KILLED
+			CollisionShape2D.set_deferred("disabled", true)
