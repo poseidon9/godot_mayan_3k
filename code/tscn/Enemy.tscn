@@ -8,7 +8,6 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "explode"
-length = 5.0
 step = 0.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -29,19 +28,19 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 2.6, 3.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.700629, 0.778338, 0.856472, 0.928877 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.965338 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Explosion:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
-"times": PoolRealArray( 0, 2.8 ),
+"times": PoolRealArray( 0, 0.68 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -51,9 +50,9 @@ tracks/3/path = NodePath("Explosion:process_material:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/keys = {
-"times": PoolRealArray( 2.8, 3.4 ),
+"times": PoolRealArray( 0.710922, 0.826899 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 1.0, 4.0 ]
@@ -77,7 +76,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 2.9 ),
+"times": PoolRealArray( 1.89 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -89,7 +88,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 4.2 ),
+"times": PoolRealArray( 0.978562 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -134,8 +133,8 @@ tracks/0/keys = {
 [sub_resource type="CanvasItemMaterial" id=4]
 
 [sub_resource type="CapsuleShape2D" id=5]
-radius = 7.0459
-height = 21.6256
+radius = 5.58403
+height = 16.6024
 
 [sub_resource type="CanvasItemMaterial" id=6]
 blend_mode = 1
@@ -145,7 +144,7 @@ flag_disable_z = true
 gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale = 1.037
+scale = 1.23621
 
 [node name="Enemy" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -161,13 +160,13 @@ anims/idle = SubResource( 2 )
 anims/walk = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0.99075 )
+self_modulate = Color( 1, 1, 1, 0.965338 )
 material = SubResource( 4 )
 rotation = 0.0110197
 texture = ExtResource( 2 )
 flip_h = true
 hframes = 8
-frame = 7
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3.2127, 0.0663412 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/scroll_bg_fg_1.png-9e7cd1351979cd3004c3130e662adce4.stex"
+path="res://.import/scroll_bg_fg_1.png-b4afd81c1a01b9ef0a9ee963aee02e53.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://aseprite/scroll_bg_fg_1.png"
-dest_files=[ "res://.import/scroll_bg_fg_1.png-9e7cd1351979cd3004c3130e662adce4.stex" ]
+source_file="res://Aseprite/scroll_bg_fg_1.png"
+dest_files=[ "res://.import/scroll_bg_fg_1.png-b4afd81c1a01b9ef0a9ee963aee02e53.stex" ]
 
 [params]
 
