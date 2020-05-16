@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 class_name Player
 
-
 const GRAVITY_VEC = Vector2(0, 900)
 const FLOOR_NORMAL = Vector2(0, -1)
 const SLOPE_SLIDE_STOP = 25.0
@@ -15,6 +14,14 @@ const SHOOT_TIME_SHOW_WEAPON = 0.1
 const MAX_MULTI_JUMP = 2
 const COMBINATION_TIMING_TRESHOLD = 0.3
 const MAX_DASHING_TIME = 0.25
+const INVULNERABILITY_TIME = 0.25
+
+#STATES
+const STATE_NORMAL = 0
+const STATE_DAMAGE = 1
+const STATE_KILLED = 2
+
+var HEALTH = 100
 
 var DASHING = false
 var CAN_DASH = true
@@ -26,6 +33,8 @@ var FACING = 1; #-1 left, 1 right
 var linear_vel = Vector2()
 var shoot_time = 99999 # time since last shot
 var last_action_time = 99999
+var last_damage_time = 99999
+var state = STATE_NORMAL
 
 var anim = ""
 
@@ -45,6 +54,7 @@ func _physics_process(delta):
 	# Increment counters
 	shoot_time += delta
 	last_action_time += delta
+	last_damage_time += delta
 
 	if(last_action_time > COMBINATION_TIMING_TRESHOLD):
 		last_action_time = 0
@@ -156,3 +166,14 @@ func _physics_process(delta):
 	if new_anim != anim:
 		anim = new_anim
 		($Anim as AnimationPlayer).play(anim)
+
+
+func hit_by_enemy():
+	if state != STATE_KILLED:
+		if last_damage_time > INVULNERABILITY_TIME:
+			print("Call the police i was hit!")
+			HEALTH -= 20
+			last_damage_time = 0
+			
+			if HEALTH <= 0:
+				get_tree().change_scene("res://code/tscn/MainMenu.tscn")
