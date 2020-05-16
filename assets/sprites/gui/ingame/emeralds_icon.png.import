@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy.png-2a8208f43850421225998f11bf44407c.stex"
+path="res://.import/emeralds_icon.png-8fb59dd8df76df43ecda4ab37d2561a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Aseprite/enemy.png"
-dest_files=[ "res://.import/enemy.png-2a8208f43850421225998f11bf44407c.stex" ]
+source_file="res://assets/sprites/gui/ingame/emeralds_icon.png"
+dest_files=[ "res://.import/emeralds_icon.png-8fb59dd8df76df43ecda4ab37d2561a4.stex" ]
 
 [params]
 

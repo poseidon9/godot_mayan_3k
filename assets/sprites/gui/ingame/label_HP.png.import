@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy.png-2a8208f43850421225998f11bf44407c.stex"
+path="res://.import/label_HP.png-c70fa3313db6c0f32033b0aba43e4986.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Aseprite/enemy.png"
-dest_files=[ "res://.import/enemy.png-2a8208f43850421225998f11bf44407c.stex" ]
+source_file="res://assets/sprites/gui/ingame/label_HP.png"
+dest_files=[ "res://.import/label_HP.png-c70fa3313db6c0f32033b0aba43e4986.stex" ]
 
 [params]
 

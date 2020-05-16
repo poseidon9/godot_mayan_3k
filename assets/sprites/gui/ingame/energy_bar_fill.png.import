@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy.png-2a8208f43850421225998f11bf44407c.stex"
+path="res://.import/energy_bar_fill.png-97b663b54f421e3dd6427ff1e218a6cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Aseprite/enemy.png"
-dest_files=[ "res://.import/enemy.png-2a8208f43850421225998f11bf44407c.stex" ]
+source_file="res://assets/sprites/gui/ingame/energy_bar_fill.png"
+dest_files=[ "res://.import/energy_bar_fill.png-97b663b54f421e3dd6427ff1e218a6cb.stex" ]
 
 [params]
 

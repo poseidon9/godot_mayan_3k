@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy.png-2a8208f43850421225998f11bf44407c.stex"
+path="res://.import/bombs_icon.png-1e607af78fa742c7784af685d0ebf480.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Aseprite/enemy.png"
-dest_files=[ "res://.import/enemy.png-2a8208f43850421225998f11bf44407c.stex" ]
+source_file="res://assets/sprites/gui/ingame/bombs_icon.png"
+dest_files=[ "res://.import/bombs_icon.png-1e607af78fa742c7784af685d0ebf480.stex" ]
 
 [params]
 

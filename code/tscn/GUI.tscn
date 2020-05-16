@@ -1,40 +1,133 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/sprites/gui/ingame/Portrait.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/gui/ingame/label_HP_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/gui/ingame/Background.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/gui/ingame/lifebar_bg.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/gui/ingame/energy_bar_bg.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/gui/ingame/lifebar_fill.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/gui/ingame/label_HP.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/gui/ingame/energy_bar_fill.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/gui/ingame/label_EP.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/gui/ingame/Portrait.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/gui/ingame/Inventory_dot.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/gui/ingame/bombs_icon.png" type="Texture" id=11]
 
 [node name="GUI" type="MarginContainer"]
 anchor_right = 1.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = 480.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Container" type="HBoxContainer" parent="."]
-margin_right = 840.0
-margin_bottom = 121.0
+margin_right = 800.0
+margin_bottom = 480.0
 
 [node name="CharacterInfo" type="VBoxContainer" parent="Container"]
-margin_right = 113.0
-margin_bottom = 121.0
+margin_bottom = 480.0
 
 [node name="Portrait" type="MarginContainer" parent="Container/CharacterInfo"]
-margin_right = 113.0
-margin_bottom = 121.0
 
 [node name="Background" type="NinePatchRect" parent="Container/CharacterInfo/Portrait"]
-margin_right = 113.0
-margin_bottom = 121.0
 texture = ExtResource( 2 )
 region_rect = Rect2( 507, 144, 1, 1 )
 
-[node name="Image" type="TextureRect" parent="Container/CharacterInfo/Portrait"]
-margin_right = 113.0
-margin_bottom = 121.0
+[node name="label_HP_bg" type="Sprite" parent="Container/CharacterInfo/Portrait/Background"]
+position = Vector2( 200, 80 )
+scale = Vector2( 0.51875, 0.54212 )
 texture = ExtResource( 1 )
 
+[node name="label_EP" type="Sprite" parent="Container/CharacterInfo/Portrait/Background/label_HP_bg"]
+position = Vector2( -32.5301, -6.51379 )
+scale = Vector2( 1.72884, 1.66988 )
+texture = ExtResource( 8 )
+
+[node name="energy_bar_bg" type="Sprite" parent="Container/CharacterInfo/Portrait"]
+position = Vector2( 88, 80 )
+scale = Vector2( 0.564516, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="lifebar_fill" type="Sprite" parent="Container/CharacterInfo/Portrait/energy_bar_bg"]
+position = Vector2( -18.7571, -1.90735e-06 )
+scale = Vector2( 0.506277, 0.650943 )
+texture = ExtResource( 5 )
+
+[node name="lifebar_bg" type="Sprite" parent="Container/CharacterInfo/Portrait"]
+position = Vector2( 120, 40 )
+scale = Vector2( 0.55202, 0.487899 )
+texture = ExtResource( 3 )
+
+[node name="energy_bar_fill" type="Sprite" parent="Container/CharacterInfo/Portrait/lifebar_bg"]
+position = Vector2( -93.28, 0.516144 )
+scale = Vector2( 0.839913, 1.5 )
+texture = ExtResource( 7 )
+
 [node name="Inventory" type="HBoxContainer" parent="Container"]
-margin_left = 117.0
-margin_right = 117.0
-margin_bottom = 121.0
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 480.0
+
+[node name="label_HP_bg" type="Sprite" parent="Container"]
+position = Vector2( 272, 40 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+
+[node name="label_HP" type="Sprite" parent="Container/label_HP_bg"]
+position = Vector2( -16, 0 )
+scale = Vector2( 1.21667, 0.858696 )
+texture = ExtResource( 6 )
+
+[node name="energy_bar_bg" type="Sprite" parent="Container"]
+position = Vector2( 52, 437.5 )
+scale = Vector2( 0.362903, 1.975 )
+texture = ExtResource( 4 )
+
+[node name="Inventory_dot" type="Sprite" parent="Container/energy_bar_bg"]
+position = Vector2( -2.05408, -0.161274 )
+scale = Vector2( 5.02141, 0.846775 )
+texture = ExtResource( 10 )
+
+[node name="Portrait" type="Sprite" parent="Container/energy_bar_bg/Inventory_dot"]
+position = Vector2( 0.409042, -0.571411 )
+scale = Vector2( 0.198746, 0.144865 )
+texture = ExtResource( 9 )
+
+[node name="lifebar_bg" type="Sprite" parent="Container"]
+position = Vector2( 372.5, 436 )
+scale = Vector2( 1.05808, 1.35849 )
+texture = ExtResource( 3 )
+
+[node name="energy_bar_fill" type="Sprite" parent="Container/lifebar_bg"]
+position = Vector2( -142.419, 7.62939e-06 )
+scale = Vector2( 0.0365875, 1.65625 )
+texture = ExtResource( 7 )
+
+[node name="energy_bar_fill2" type="Sprite" parent="Container/lifebar_bg"]
+position = Vector2( -85.71, 7.62939e-06 )
+scale = Vector2( 0.0365875, 1.65625 )
+texture = ExtResource( 7 )
+
+[node name="energy_bar_fill3" type="Sprite" parent="Container/lifebar_bg"]
+position = Vector2( -22.3848, 7.62939e-06 )
+scale = Vector2( 0.0365875, 1.65625 )
+texture = ExtResource( 7 )
+
+[node name="energy_bar_fill4" type="Sprite" parent="Container/lifebar_bg"]
+position = Vector2( 37.1592, 7.62939e-06 )
+scale = Vector2( 0.0365875, 1.65625 )
+texture = ExtResource( 7 )
+
+[node name="energy_bar_fill5" type="Sprite" parent="Container/lifebar_bg"]
+position = Vector2( 100.48, 7.62939e-06 )
+scale = Vector2( 0.0365875, 1.65625 )
+texture = ExtResource( 7 )
+
+[node name="energy_bar_fill6" type="Sprite" parent="Container/lifebar_bg"]
+position = Vector2( 153.408, 7.62939e-06 )
+scale = Vector2( 0.0365875, 1.65625 )
+texture = ExtResource( 7 )
+
+[node name="bombs_icon" type="Sprite" parent="Container"]
+position = Vector2( 662, 432 )
+scale = Vector2( 0.8, 0.7 )
+texture = ExtResource( 11 )

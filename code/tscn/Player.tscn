@@ -1,17 +1,14 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://code/gd/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/player/robot_demo.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/gui/ingame/Background.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/gui/ingame/Portrait.png" type="Texture" id=4]
+[ext_resource path="res://code/tscn/GUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprites/player/osb_left.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/player/osb_fire.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/player/osb_jump.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/player/osb_right.png" type="Texture" id=8]
 [ext_resource path="res://assets/audio/sounds/sound_shoot.wav" type="AudioStream" id=9]
-[ext_resource path="res://assets/sprites/gui/ingame/Inventory_bg.png" type="Texture" id=10]
 [ext_resource path="res://assets/audio/sounds/sound_jump.wav" type="AudioStream" id=11]
-[ext_resource path="res://assets/sprites/gui/ingame/Inventory_dot.png" type="Texture" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "crouch"
@@ -240,157 +237,6 @@ volume_db = 4.0
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 0
 
-[node name="GUI" type="MarginContainer" parent="UI"]
-visible = false
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -121.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Container" type="HBoxContainer" parent="UI/GUI"]
-margin_right = 800.0
-margin_bottom = 121.0
-
-[node name="CharacterInfo" type="VBoxContainer" parent="UI/GUI/Container"]
-margin_right = 113.0
-margin_bottom = 121.0
-
-[node name="Portrait" type="MarginContainer" parent="UI/GUI/Container/CharacterInfo"]
-margin_right = 113.0
-margin_bottom = 121.0
-
-[node name="Background" type="NinePatchRect" parent="UI/GUI/Container/CharacterInfo/Portrait"]
-margin_right = 113.0
-margin_bottom = 121.0
-texture = ExtResource( 3 )
-
-[node name="Image" type="TextureRect" parent="UI/GUI/Container/CharacterInfo/Portrait"]
-margin_right = 113.0
-margin_bottom = 121.0
-texture = ExtResource( 4 )
-
-[node name="Inventory" type="HBoxContainer" parent="UI/GUI/Container"]
-margin_left = 117.0
-margin_right = 733.0
-margin_bottom = 121.0
-
-[node name="Item1" type="MarginContainer" parent="UI/GUI/Container/Inventory"]
-margin_right = 120.0
-margin_bottom = 121.0
-rect_min_size = Vector2( 120, 0 )
-
-[node name="Background" type="NinePatchRect" parent="UI/GUI/Container/Inventory/Item1"]
-margin_right = 120.0
-margin_bottom = 121.0
-texture = ExtResource( 10 )
-axis_stretch_horizontal = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="UI/GUI/Container/Inventory/Item1"]
-margin_right = 120.0
-margin_bottom = 121.0
-
-[node name="Image" type="TextureRect" parent="UI/GUI/Container/Inventory/Item1/CenterContainer"]
-margin_left = 44.0
-margin_top = 48.0
-margin_right = 75.0
-margin_bottom = 72.0
-texture = ExtResource( 12 )
-
-[node name="Item2" type="MarginContainer" parent="UI/GUI/Container/Inventory"]
-margin_left = 124.0
-margin_right = 244.0
-margin_bottom = 121.0
-rect_min_size = Vector2( 120, 0 )
-
-[node name="Background" type="NinePatchRect" parent="UI/GUI/Container/Inventory/Item2"]
-margin_right = 120.0
-margin_bottom = 121.0
-texture = ExtResource( 10 )
-axis_stretch_horizontal = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="UI/GUI/Container/Inventory/Item2"]
-margin_right = 120.0
-margin_bottom = 121.0
-
-[node name="Image" type="TextureRect" parent="UI/GUI/Container/Inventory/Item2/CenterContainer"]
-margin_left = 44.0
-margin_top = 48.0
-margin_right = 75.0
-margin_bottom = 72.0
-texture = ExtResource( 12 )
-
-[node name="Item3" type="MarginContainer" parent="UI/GUI/Container/Inventory"]
-margin_left = 248.0
-margin_right = 368.0
-margin_bottom = 121.0
-rect_min_size = Vector2( 120, 0 )
-
-[node name="Background" type="NinePatchRect" parent="UI/GUI/Container/Inventory/Item3"]
-margin_right = 120.0
-margin_bottom = 121.0
-texture = ExtResource( 10 )
-axis_stretch_horizontal = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="UI/GUI/Container/Inventory/Item3"]
-margin_right = 120.0
-margin_bottom = 121.0
-
-[node name="Image" type="TextureRect" parent="UI/GUI/Container/Inventory/Item3/CenterContainer"]
-margin_left = 44.0
-margin_top = 48.0
-margin_right = 75.0
-margin_bottom = 72.0
-texture = ExtResource( 12 )
-
-[node name="Item4" type="MarginContainer" parent="UI/GUI/Container/Inventory"]
-margin_left = 372.0
-margin_right = 492.0
-margin_bottom = 121.0
-rect_min_size = Vector2( 120, 0 )
-
-[node name="Background" type="NinePatchRect" parent="UI/GUI/Container/Inventory/Item4"]
-margin_right = 120.0
-margin_bottom = 121.0
-texture = ExtResource( 10 )
-axis_stretch_horizontal = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="UI/GUI/Container/Inventory/Item4"]
-margin_right = 120.0
-margin_bottom = 121.0
-
-[node name="Image" type="TextureRect" parent="UI/GUI/Container/Inventory/Item4/CenterContainer"]
-margin_left = 44.0
-margin_top = 48.0
-margin_right = 75.0
-margin_bottom = 72.0
-texture = ExtResource( 12 )
-
-[node name="Item5" type="MarginContainer" parent="UI/GUI/Container/Inventory"]
-margin_left = 496.0
-margin_right = 616.0
-margin_bottom = 121.0
-rect_min_size = Vector2( 120, 0 )
-
-[node name="Background" type="NinePatchRect" parent="UI/GUI/Container/Inventory/Item5"]
-margin_right = 120.0
-margin_bottom = 121.0
-texture = ExtResource( 10 )
-axis_stretch_horizontal = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="UI/GUI/Container/Inventory/Item5"]
-margin_right = 120.0
-margin_bottom = 121.0
-
-[node name="Image" type="TextureRect" parent="UI/GUI/Container/Inventory/Item5/CenterContainer"]
-margin_left = 44.0
-margin_top = 48.0
-margin_right = 75.0
-margin_bottom = 72.0
-texture = ExtResource( 12 )
-
 [node name="Left" type="TouchScreenButton" parent="UI"]
 position = Vector2( 27.7593, 270.87 )
 scale = Vector2( 1.49157, 1.46265 )
@@ -431,3 +277,5 @@ scale = Vector2( 1.49157, 1.46265 )
 normal = ExtResource( 6 )
 action = "shoot"
 visibility_mode = 1
+
+[node name="GUI" parent="UI" instance=ExtResource( 3 )]
