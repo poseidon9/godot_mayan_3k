@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/sprites/gui/ingame/label_HP_bg.png" type="Texture" id=1]
-[ext_resource path="res://assets/sprites/gui/ingame/Background.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/gui/ingame/lifebar_bg.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/gui/ingame/energy_bar_bg.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/gui/ingame/lifebar_fill.png" type="Texture" id=5]
@@ -24,12 +23,16 @@ margin_right = 800.0
 margin_bottom = 480.0
 
 [node name="CharacterInfo" type="VBoxContainer" parent="Container"]
+margin_right = 396.0
 margin_bottom = 480.0
 
 [node name="Portrait" type="MarginContainer" parent="Container/CharacterInfo"]
+margin_right = 396.0
+margin_bottom = 53.0
 
 [node name="Background" type="NinePatchRect" parent="Container/CharacterInfo/Portrait"]
-texture = ExtResource( 2 )
+margin_right = 396.0
+margin_bottom = 53.0
 region_rect = Rect2( 507, 144, 1, 1 )
 
 [node name="label_HP_bg" type="Sprite" parent="Container/CharacterInfo/Portrait/Background"]
@@ -52,19 +55,16 @@ position = Vector2( -18.7571, -1.90735e-06 )
 scale = Vector2( 0.506277, 0.650943 )
 texture = ExtResource( 5 )
 
-[node name="lifebar_bg" type="Sprite" parent="Container/CharacterInfo/Portrait"]
-position = Vector2( 120, 40 )
-scale = Vector2( 0.55202, 0.487899 )
-texture = ExtResource( 3 )
-
-[node name="energy_bar_fill" type="Sprite" parent="Container/CharacterInfo/Portrait/lifebar_bg"]
-position = Vector2( -93.28, 0.516144 )
-scale = Vector2( 0.839913, 1.5 )
-texture = ExtResource( 7 )
+[node name="lifebar_bg" type="TextureProgress" parent="Container/CharacterInfo/Portrait"]
+margin_right = 396.0
+margin_bottom = 53.0
+value = 100.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 5 )
 
 [node name="Inventory" type="HBoxContainer" parent="Container"]
-margin_left = 4.0
-margin_right = 4.0
+margin_left = 400.0
+margin_right = 400.0
 margin_bottom = 480.0
 
 [node name="label_HP_bg" type="Sprite" parent="Container"]
