@@ -40,6 +40,8 @@ var anim = ""
 
 # cache the sprite here for fast access (we will set scale to flip it often)
 onready var sprite = $Sprite
+#onready var lifebar = get_node("/root/Player/UI/GUI/Container/CharacterInfo/Portrait/lifebar")
+onready var lifebar = $UI/GUI/Container/CharacterInfo/Portrait/lifebar_bg
 # cache bullet for fast access
 var Bullet = preload("res://code/tscn/Bullet.tscn")
 
@@ -171,9 +173,13 @@ func _physics_process(delta):
 func hit_by_enemy():
 	if state != STATE_KILLED:
 		if last_damage_time > INVULNERABILITY_TIME:
-			print("Call the police i was hit!")
-			HEALTH -= 20
+			var dmg = randi() % 10 + 1
+			var crit = true if randi() % 100 < 10 else false
+			$FCTMgr.show_value(dmg, crit)
+
+			HEALTH -= dmg
 			last_damage_time = 0
+			lifebar.value = HEALTH
 			
 			if HEALTH <= 0:
 				get_tree().change_scene("res://code/tscn/MainMenu.tscn")

@@ -38,11 +38,21 @@ func _physics_process(delta):
 			if collision.collider.name == "Player":
 				collision.collider.call("hit_by_enemy")
 
-		if not DetectFloorLeft.is_colliding() or DetectWallLeft.is_colliding():
+		if not DetectFloorLeft.is_colliding():
 			direction = 1.0
 
-		if not DetectFloorRight.is_colliding() or DetectWallRight.is_colliding():
-			direction = -1.0
+		if DetectWallLeft.is_colliding():
+			var object = DetectWallLeft.get_collider()
+			if object.get_name() != "Player" and object.get_name() != "Bullet":
+				direction = 1.0
+
+		if not DetectFloorRight.is_colliding():
+				direction = -1.0
+
+		if DetectWallRight.is_colliding():
+			var object = DetectWallRight.get_collider()
+			if object.get_name() != "Player" and object.get_name() != "Bullet":
+				direction = -1.0
 
 		sprite.scale = Vector2(direction, 1.0)
 		new_anim = "walk"
@@ -55,7 +65,11 @@ func _physics_process(delta):
 
 func hit_by_bullet():
 	if state != STATE_KILLED:
-		HEALTH -= 20
+		var dmg = randi() % 10 + 1
+		var crit = true if randi() % 100 < 10 else false
+		$FCTMgr.show_value(dmg, crit)
+
+		HEALTH -= dmg
 
 		if HEALTH <= 0:
 			state = STATE_KILLED
