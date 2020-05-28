@@ -65,6 +65,7 @@ tracks/2/keys = {
 
 [node name="Bullet" type="RigidBody2D"]
 material = SubResource( 1 )
+gravity_scale = 0.0
 continuous_cd = 2
 contacts_reported = 1
 contact_monitor = true

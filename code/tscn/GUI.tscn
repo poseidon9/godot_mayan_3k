@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/sprites/gui/ingame/label_HP_bg.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/gui/ingame/border.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/gui/ingame/lifebar_bg.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/gui/ingame/energy_bar_bg.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/gui/ingame/lifebar_fill.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/gui/ingame/label_HP.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/gui/ingame/energy_bar_fill.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/gui/ingame/Zone_01_Map_222.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/gui/ingame/label_EP.png" type="Texture" id=8]
-[ext_resource path="res://assets/sprites/gui/ingame/Portrait.png" type="Texture" id=9]
-[ext_resource path="res://assets/sprites/gui/ingame/Inventory_dot.png" type="Texture" id=10]
-[ext_resource path="res://assets/sprites/gui/ingame/bombs_icon.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/gui/ingame/player_1.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/gui/ingame/tech-border-blue.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/gui/ingame/Map_(Item).png" type="Texture" id=11]
 
 [node name="GUI" type="MarginContainer"]
 anchor_right = 1.0
@@ -67,8 +68,43 @@ margin_left = 400.0
 margin_right = 400.0
 margin_bottom = 480.0
 
+[node name="border" type="Sprite" parent="Container"]
+position = Vector2( 260, 447 )
+scale = Vector2( 0.7, 0.6 )
+texture = ExtResource( 2 )
+
+[node name="border2" type="Sprite" parent="Container"]
+position = Vector2( 314, 447 )
+scale = Vector2( 0.7, 0.6 )
+texture = ExtResource( 2 )
+
+[node name="border3" type="Sprite" parent="Container"]
+position = Vector2( 369, 447 )
+scale = Vector2( 0.7, 0.6 )
+texture = ExtResource( 2 )
+
+[node name="border4" type="Sprite" parent="Container"]
+position = Vector2( 424, 447 )
+scale = Vector2( 0.7, 0.6 )
+texture = ExtResource( 2 )
+
+[node name="border5" type="Sprite" parent="Container"]
+position = Vector2( 479, 447 )
+scale = Vector2( 0.7, 0.6 )
+texture = ExtResource( 2 )
+
+[node name="border6" type="Sprite" parent="Container"]
+position = Vector2( 534, 447 )
+scale = Vector2( 0.7, 0.6 )
+texture = ExtResource( 2 )
+
+[node name="border7" type="Sprite" parent="Container"]
+position = Vector2( 590, 447 )
+scale = Vector2( 0.7, 0.6 )
+texture = ExtResource( 2 )
+
 [node name="label_HP_bg" type="Sprite" parent="Container"]
-position = Vector2( 272, 40 )
+position = Vector2( 440, 32 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
@@ -77,57 +113,22 @@ position = Vector2( -16, 0 )
 scale = Vector2( 1.21667, 0.858696 )
 texture = ExtResource( 6 )
 
-[node name="energy_bar_bg" type="Sprite" parent="Container"]
-position = Vector2( 52, 437.5 )
-scale = Vector2( 0.362903, 1.975 )
-texture = ExtResource( 4 )
+[node name="Map_(Item)" type="Sprite" parent="Container"]
+position = Vector2( 696, 64 )
+scale = Vector2( 1.28, 0.766666 )
+texture = ExtResource( 11 )
 
-[node name="Inventory_dot" type="Sprite" parent="Container/energy_bar_bg"]
-position = Vector2( -2.05408, -0.161274 )
-scale = Vector2( 5.02141, 0.846775 )
+[node name="Zone_01_Map_222" type="Sprite" parent="Container/Map_(Item)"]
+position = Vector2( 0.995031, 0.722559 )
+scale = Vector2( 0.178891, 0.244879 )
+texture = ExtResource( 7 )
+
+[node name="tech-border-blue" type="Sprite" parent="."]
+position = Vector2( 146, 420 )
+scale = Vector2( 0.0772014, 0.100678 )
 texture = ExtResource( 10 )
 
-[node name="Portrait" type="Sprite" parent="Container/energy_bar_bg/Inventory_dot"]
-position = Vector2( 0.409042, -0.571411 )
-scale = Vector2( 0.198746, 0.144865 )
+[node name="player_1" type="Sprite" parent="tech-border-blue"]
+position = Vector2( 14.2617, -8.96704 )
+scale = Vector2( 3.10221, 1.7665 )
 texture = ExtResource( 9 )
-
-[node name="lifebar_bg" type="Sprite" parent="Container"]
-position = Vector2( 372.5, 436 )
-scale = Vector2( 1.05808, 1.35849 )
-texture = ExtResource( 3 )
-
-[node name="energy_bar_fill" type="Sprite" parent="Container/lifebar_bg"]
-position = Vector2( -142.419, 7.62939e-06 )
-scale = Vector2( 0.0365875, 1.65625 )
-texture = ExtResource( 7 )
-
-[node name="energy_bar_fill2" type="Sprite" parent="Container/lifebar_bg"]
-position = Vector2( -85.71, 7.62939e-06 )
-scale = Vector2( 0.0365875, 1.65625 )
-texture = ExtResource( 7 )
-
-[node name="energy_bar_fill3" type="Sprite" parent="Container/lifebar_bg"]
-position = Vector2( -22.3848, 7.62939e-06 )
-scale = Vector2( 0.0365875, 1.65625 )
-texture = ExtResource( 7 )
-
-[node name="energy_bar_fill4" type="Sprite" parent="Container/lifebar_bg"]
-position = Vector2( 37.1592, 7.62939e-06 )
-scale = Vector2( 0.0365875, 1.65625 )
-texture = ExtResource( 7 )
-
-[node name="energy_bar_fill5" type="Sprite" parent="Container/lifebar_bg"]
-position = Vector2( 100.48, 7.62939e-06 )
-scale = Vector2( 0.0365875, 1.65625 )
-texture = ExtResource( 7 )
-
-[node name="energy_bar_fill6" type="Sprite" parent="Container/lifebar_bg"]
-position = Vector2( 153.408, 7.62939e-06 )
-scale = Vector2( 0.0365875, 1.65625 )
-texture = ExtResource( 7 )
-
-[node name="bombs_icon" type="Sprite" parent="Container"]
-position = Vector2( 662, 432 )
-scale = Vector2( 0.8, 0.7 )
-texture = ExtResource( 11 )

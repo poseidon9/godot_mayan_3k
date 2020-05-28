@@ -185,8 +185,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=11]
-radius = 8.13055
-height = 15.7524
+radius = 7.6768
+height = 14.2057
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -223,11 +223,15 @@ anims/standing_weapon_ready = SubResource( 10 )
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
+process_mode = 0
 limit_left = 0
 limit_top = 0
+limit_smoothed = true
+smoothing_enabled = true
+editor_draw_screen = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.729698, 12.7875 )
+position = Vector2( 0.0413744, 13.5586 )
 shape = SubResource( 11 )
 
 [node name="SoundJump" type="AudioStreamPlayer2D" parent="."]
@@ -273,6 +277,13 @@ position = Vector2( -98.151, -167.768 )
 scale = Vector2( 1.49157, 1.46265 )
 normal = ExtResource( 7 )
 action = "jump"
+visibility_mode = 1
+
+[node name="Dash" type="TouchScreenButton" parent="UI/BottomRightAnchor"]
+position = Vector2( -192.151, -167.768 )
+scale = Vector2( 1.49157, 1.46265 )
+normal = ExtResource( 6 )
+action = "dash"
 visibility_mode = 1
 
 [node name="Fire" type="TouchScreenButton" parent="UI/BottomRightAnchor"]

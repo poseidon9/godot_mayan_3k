@@ -2,12 +2,12 @@ extends KinematicBody2D
 
 class_name Player
 
-const GRAVITY_VEC = Vector2(0, 900)
+const GRAVITY_VEC = Vector2(0, 1200) #900
 const FLOOR_NORMAL = Vector2(0, -1)
 const SLOPE_SLIDE_STOP = 25.0
 const WALK_SPEED = 250 # pixels/sec
 const RUN_SPEED = 600 # pixels/sec
-const JUMP_SPEED = 320
+const JUMP_SPEED = 500 #320
 const SIDING_CHANGE_SPEED = 10
 const BULLET_VELOCITY = 800
 const SHOOT_TIME_SHOW_WEAPON = 0.1
@@ -28,7 +28,6 @@ var CAN_DASH = true
 var MULTI_JUMP = 2
 var ACTIONS = []
 var DASHING_TIME = 0
-var FACING = 1; #-1 left, 1 right
 
 var linear_vel = Vector2()
 var shoot_time = 99999 # time since last shot
@@ -40,7 +39,6 @@ var anim = ""
 
 # cache the sprite here for fast access (we will set scale to flip it often)
 onready var sprite = $Sprite
-#onready var lifebar = get_node("/root/Player/UI/GUI/Container/CharacterInfo/Portrait/lifebar")
 onready var lifebar = $UI/GUI/Container/CharacterInfo/Portrait/lifebar_bg
 # cache bullet for fast access
 var Bullet = preload("res://code/tscn/Bullet.tscn")
@@ -76,6 +74,9 @@ func _physics_process(delta):
 		DASHING = false
 		DASHING_TIME = 0
 		CAN_DASH = true
+		rotation = lerp(rotation, get_floor_normal().angle() + PI/2, 0.2)
+	else:
+		rotation = lerp(rotation, 0, 0.2)
 
 	### CONTROL ###
 
@@ -88,11 +89,15 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("move_left") and not DASHING:
 		target_speed -= 1
-		FACING = -1
 	if Input.is_action_pressed("move_right") and not DASHING:
 		add_action("right")
 		target_speed += 1
-		FACING = 1
+
+	if (Input.is_key_pressed(KEY_G)):
+			Global.save_file(self, "test")
+
+	if (Input.is_key_pressed(KEY_L)):
+		Global.load_file(self, "test")
 
 	target_speed *= WALK_SPEED
 	linear_vel.x = lerp(linear_vel.x, target_speed, 0.1)
@@ -117,7 +122,7 @@ func _physics_process(delta):
 		add_action("shoot")
 		var bullet = Bullet.instance()
 		bullet.position = ($Sprite/BulletShoot as Position2D).global_position # use node for shoot position
-		bullet.linear_velocity = Vector2(sprite.scale.x * BULLET_VELOCITY, 0)
+		bullet.linear_velocity = (transform.x * BULLET_VELOCITY) * sprite.scale.x
 		bullet.add_collision_exception_with(self) # don't want player to collide with bullet
 		get_parent().add_child(bullet) # don't want bullet to move with me, so add it as child of parent
 		($SoundShoot as AudioStreamPlayer2D).play()
@@ -144,9 +149,10 @@ func _physics_process(delta):
 		if Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left") and not DASHING:
 			sprite.scale.x = 1
 
-		if Input.is_key_pressed(KEY_X) and CAN_DASH:
+		if (Input.is_key_pressed(KEY_X) or Input.is_action_pressed("dash")) and CAN_DASH:
 			DASHING = true
 			CAN_DASH = false
+
 
 		if linear_vel.y < 0:
 			new_anim = "jumping"
@@ -155,7 +161,7 @@ func _physics_process(delta):
 
 		if DASHING:
 			DASHING_TIME += delta
-			linear_vel.x = FACING * RUN_SPEED
+			linear_vel.x = (sprite.scale.x * RUN_SPEED)
 			linear_vel.y = -15 # why???
 
 			if DASHING_TIME > MAX_DASHING_TIME:
@@ -180,6 +186,6 @@ func hit_by_enemy():
 			HEALTH -= dmg
 			last_damage_time = 0
 			lifebar.value = HEALTH
-			
+
 			if HEALTH <= 0:
 				get_tree().change_scene("res://code/tscn/MainMenu.tscn")

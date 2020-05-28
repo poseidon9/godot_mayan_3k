@@ -9,7 +9,7 @@ const STATE_WALKING = 0
 const STATE_KILLED = 1
 const WALK_SPEED = 70 
 
-var HEALTH = 100
+var HEALTH = 20
 
 var linear_velocity = Vector2()
 var direction = -1
