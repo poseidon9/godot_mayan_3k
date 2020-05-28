@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/scroll_bg_fg_400t.png-8e49a1006b07699efbb49d85b55dceff.stex"
+path="res://.import/Zone_01_Map_222.png-6bcbd462b48d2f495d416e1a8590d7f4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Aseprite/scroll_bg_fg_400t.png"
-dest_files=[ "res://.import/scroll_bg_fg_400t.png-8e49a1006b07699efbb49d85b55dceff.stex" ]
+source_file="res://assets/sprites/gui/ingame/Zone_01_Map_222.png"
+dest_files=[ "res://.import/Zone_01_Map_222.png-6bcbd462b48d2f495d416e1a8590d7f4.stex" ]
 
 [params]
 

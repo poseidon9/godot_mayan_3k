@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/scroll_bg_fg_400t.png-8e49a1006b07699efbb49d85b55dceff.stex"
+path="res://.import/new_game_transparent.png-3c8f0bbe37ae989098092ae34101c052.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Aseprite/scroll_bg_fg_400t.png"
-dest_files=[ "res://.import/scroll_bg_fg_400t.png-8e49a1006b07699efbb49d85b55dceff.stex" ]
+source_file="res://assets/sprites/gui/mainmenu/new_game_transparent.png"
+dest_files=[ "res://.import/new_game_transparent.png-3c8f0bbe37ae989098092ae34101c052.stex" ]
 
 [params]
 
