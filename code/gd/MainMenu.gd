@@ -11,6 +11,7 @@ var btn_pre = "HBoxContainer/VBoxContainer/";
 func _ready():
 	var continue_btn = get_node(btn_pre + "Continue")
 	continue_btn.grab_focus()
+	print("test: " + Global.language)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
