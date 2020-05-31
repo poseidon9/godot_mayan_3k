@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/sprites/gui/mainmenu/new_game.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/gui/mainmenu/options.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/gui/mainmenu/24176600.jpg" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/gui/mainmenu/illustration.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/gui/mainmenu/version.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/gui/mainmenu/continue.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/gui/mainmenu/exit.png" type="Texture" id=6]
@@ -17,10 +17,6 @@
 [node name="MainMenu" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 0.630249
-margin_top = -5.04196
-margin_right = 0.630249
-margin_bottom = -5.04196
 custom_constants/margin_right = 120
 custom_constants/margin_top = 80
 custom_constants/margin_left = 120
@@ -39,11 +35,6 @@ grow_horizontal = 0
 grow_vertical = 0
 rect_clip_content = true
 color = Color( 0, 0, 0, 1 )
-
-[node name="24176600" type="Sprite" parent="."]
-position = Vector2( 400.592, 249.806 )
-scale = Vector2( 0.841388, 0.527209 )
-texture = ExtResource( 3 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 120.0
@@ -95,6 +86,17 @@ margin_top = 260.0
 margin_right = 120.0
 margin_bottom = 300.0
 texture = ExtResource( 4 )
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+margin_left = 124.0
+margin_right = 354.0
+margin_bottom = 320.0
+
+[node name="Illustration" type="TextureRect" parent="HBoxContainer/CenterContainer"]
+margin_top = 85.0
+margin_right = 230.0
+margin_bottom = 235.0
+texture = ExtResource( 3 )
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/NewGame" to="." method="_on_New_Game_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Options" to="." method="_on_Options_pressed"]
