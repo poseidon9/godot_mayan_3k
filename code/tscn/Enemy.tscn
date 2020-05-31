@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://code/gd/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/enemies/enemy.png" type="Texture" id=2]
@@ -6,6 +6,48 @@
 [ext_resource path="res://assets/audio/sounds/sound_hit.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/audio/sounds/sound_explode.wav" type="AudioStream" id=5]
 [ext_resource path="res://code/tscn/FCTMgr.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/audio/sounds/Knife atk.wav" type="AudioStream" id=7]
+
+[sub_resource type="Animation" id=8]
+resource_name = "Attack"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 8, 9, 10, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Knife atk:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Knife hit:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "explode"
@@ -99,6 +141,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id=2]
 length = 4.5
+loop = true
 step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -146,6 +189,9 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 1.23621
 
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 8.97982, 2.82913 )
+
 [node name="Enemy" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -155,18 +201,19 @@ scale = Vector2( 23.5056, 10.8629 )
 pause_particles = false
 
 [node name="Anim" type="AnimationPlayer" parent="."]
+anims/Attack = SubResource( 8 )
 anims/explode = SubResource( 1 )
 anims/idle = SubResource( 2 )
 anims/walk = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0.752678 )
+self_modulate = Color( 1, 1, 1, 0.831921 )
 material = SubResource( 4 )
 rotation = 0.0110197
 texture = ExtResource( 2 )
 flip_h = true
-hframes = 8
-frame = 3
+hframes = 11
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.50858, 0.207165 )
@@ -218,3 +265,12 @@ volume_db = -5.0
 
 [node name="FCTMgr" parent="." instance=ExtResource( 6 )]
 position = Vector2( 0.220367, -15.646 )
+
+[node name="Knife atk" type="CollisionShape2D" parent="."]
+position = Vector2( 19.5587, -4.88581 )
+shape = SubResource( 9 )
+
+[node name="Knife hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -16.735
+pitch_scale = 1.02

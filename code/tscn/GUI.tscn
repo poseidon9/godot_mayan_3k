@@ -114,13 +114,12 @@ scale = Vector2( 1.21667, 0.858696 )
 texture = ExtResource( 6 )
 
 [node name="Map_(Item)" type="Sprite" parent="Container"]
-position = Vector2( 696, 64 )
-scale = Vector2( 1.28, 0.766666 )
+position = Vector2( 723.337, 60 )
 texture = ExtResource( 11 )
 
 [node name="Zone_01_Map_222" type="Sprite" parent="Container/Map_(Item)"]
-position = Vector2( 0.995031, 0.722559 )
-scale = Vector2( 0.178891, 0.244879 )
+position = Vector2( -0.143048, 0.351979 )
+scale = Vector2( 0.178228, 0.190431 )
 texture = ExtResource( 7 )
 
 [node name="tech-border-blue" type="Sprite" parent="."]
