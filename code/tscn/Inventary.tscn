@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/sprites/gui/inventary/background_black.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/gui/inventary/empty_inventary.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/gui/inventary/inventary_loot.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/gui/inventary/armor_inventary.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/gui/inventary/helmet_inventary.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/gui/inventary/primary_inventary.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/gui/inventary/pants_inventary.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/gui/inventary/shoes_inventary.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/gui/inventary/inventary-hud.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/gui/ingame/hud-gui.png" type="Texture" id=10]
+
+[node name="Inventary" type="MarginContainer"]
+margin_left = 143.0
+margin_top = 13.0
+margin_right = 704.0
+margin_bottom = 449.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background_black" type="Sprite" parent="."]
+position = Vector2( 267.583, 226.451 )
+scale = Vector2( 2.75403, 1.51694 )
+texture = ExtResource( 1 )
+
+[node name="primary_inventary" type="Sprite" parent="background_black"]
+position = Vector2( -65.8804, -26.0831 )
+scale = Vector2( 0.218247, 0.29196 )
+texture = ExtResource( 6 )
+
+[node name="armor_inventary" type="Sprite" parent="background_black"]
+position = Vector2( -44.439, -26.0432 )
+scale = Vector2( 0.205839, 0.288776 )
+texture = ExtResource( 4 )
+
+[node name="shoes_inventary" type="Sprite" parent="background_black"]
+position = Vector2( -44.3387, 40.293 )
+scale = Vector2( 0.199635, 0.310143 )
+texture = ExtResource( 8 )
+
+[node name="pants_inventary" type="Sprite" parent="background_black"]
+position = Vector2( -44.4633, 9.76379 )
+scale = Vector2( 0.199635, 0.310143 )
+texture = ExtResource( 7 )
+
+[node name="helmet_inventary" type="Sprite" parent="background_black"]
+position = Vector2( -45.2276, -58.0226 )
+scale = Vector2( 0.199635, 0.310143 )
+texture = ExtResource( 5 )
+
+[node name="inventary_loot" type="Sprite" parent="background_black"]
+position = Vector2( 66.9445, 7.93946 )
+scale = Vector2( 0.231906, 0.357254 )
+texture = ExtResource( 3 )
+
+[node name="empty_inventary_1" type="Sprite" parent="background_black/inventary_loot"]
+position = Vector2( -82.5375, -96.1771 )
+scale = Vector2( 0.623641, 0.52377 )
+texture = ExtResource( 2 )
+
+[node name="empty_inventary_2" type="Sprite" parent="background_black/inventary_loot"]
+position = Vector2( -0.471008, -96.1771 )
+scale = Vector2( 0.623641, 0.52377 )
+texture = ExtResource( 2 )
+
+[node name="empty_inventary_3" type="Sprite" parent="background_black/inventary_loot"]
+position = Vector2( 80.3886, -96.1771 )
+scale = Vector2( 0.623641, 0.52377 )
+texture = ExtResource( 2 )
+
+[node name="empty_inventary_6" type="Sprite" parent="background_black/inventary_loot"]
+position = Vector2( -82.5375, -34.0303 )
+scale = Vector2( 0.623641, 0.52377 )
+texture = ExtResource( 2 )
+
+[node name="empty_inventary_5" type="Sprite" parent="background_black/inventary_loot"]
+position = Vector2( -0.471008, -34.0303 )
+scale = Vector2( 0.623641, 0.52377 )
+texture = ExtResource( 2 )
+
+[node name="empty_inventary_4" type="Sprite" parent="background_black/inventary_loot"]
+position = Vector2( 80.3886, -34.0303 )
+scale = Vector2( 0.623641, 0.52377 )
+texture = ExtResource( 2 )
+
+[node name="empty_inventary_9" type="Sprite" parent="background_black/inventary_loot"]
+position = Vector2( -82.5375, 26.9655 )
+scale = Vector2( 0.623641, 0.52377 )
+texture = ExtResource( 2 )
+
+[node name="empty_inventary_8" type="Sprite" parent="background_black/inventary_loot"]
+position = Vector2( -0.471008, 26.9655 )
+scale = Vector2( 0.623641, 0.52377 )
+texture = ExtResource( 2 )
+
+[node name="empty_inventary_7" type="Sprite" parent="background_black/inventary_loot"]
+position = Vector2( 80.3886, 26.9655 )
+scale = Vector2( 0.623641, 0.52377 )
+texture = ExtResource( 2 )
+
+[node name="empty_inventary_12" type="Sprite" parent="background_black/inventary_loot"]
+position = Vector2( -82.5375, 92.5648 )
+scale = Vector2( 0.623641, 0.52377 )
+texture = ExtResource( 2 )
+
+[node name="empty_inventary_11" type="Sprite" parent="background_black/inventary_loot"]
+position = Vector2( -0.471008, 92.5648 )
+scale = Vector2( 0.623641, 0.52377 )
+texture = ExtResource( 2 )
+
+[node name="empty_inventary_10" type="Sprite" parent="background_black/inventary_loot"]
+position = Vector2( 80.3886, 92.5648 )
+scale = Vector2( 0.623641, 0.52377 )
+texture = ExtResource( 2 )
+
+[node name="inventary-hud" type="Sprite" parent="background_black"]
+position = Vector2( -56.0169, -8.6794 )
+scale = Vector2( 0.538356, 0.921731 )
+texture = ExtResource( 9 )
+
+[node name="hud-gui" type="Sprite" parent="background_black"]
+position = Vector2( -0.619255, -0.982936 )
+scale = Vector2( 0.464332, 0.896456 )
+texture = ExtResource( 10 )

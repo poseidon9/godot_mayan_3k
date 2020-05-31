@@ -9,8 +9,8 @@
 [ext_resource path="res://assets/sprites/gui/ingame/Zone_01_Map_222.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/gui/ingame/label_EP.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/gui/ingame/player_1.png" type="Texture" id=9]
-[ext_resource path="res://assets/sprites/gui/ingame/tech-border-blue.png" type="Texture" id=10]
 [ext_resource path="res://assets/sprites/gui/ingame/Map_(Item).png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/gui/ingame/hud-gui.png" type="Texture" id=12]
 
 [node name="GUI" type="MarginContainer"]
 anchor_right = 1.0
@@ -123,12 +123,12 @@ position = Vector2( 0.995031, 0.722559 )
 scale = Vector2( 0.178891, 0.244879 )
 texture = ExtResource( 7 )
 
-[node name="tech-border-blue" type="Sprite" parent="."]
-position = Vector2( 146, 420 )
-scale = Vector2( 0.0772014, 0.100678 )
-texture = ExtResource( 10 )
+[node name="hud-gui" type="Sprite" parent="."]
+position = Vector2( 147, 418.125 )
+scale = Vector2( 0.284345, 0.355516 )
+texture = ExtResource( 12 )
 
-[node name="player_1" type="Sprite" parent="tech-border-blue"]
-position = Vector2( 14.2617, -8.96704 )
-scale = Vector2( 3.10221, 1.7665 )
+[node name="player_1" type="Sprite" parent="hud-gui"]
+position = Vector2( -3.51685, -0.0780029 )
+scale = Vector2( 0.984719, 0.500253 )
 texture = ExtResource( 9 )
