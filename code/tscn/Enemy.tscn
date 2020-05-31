@@ -8,7 +8,7 @@
 [ext_resource path="res://code/tscn/FCTMgr.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/audio/sounds/Knife atk.wav" type="AudioStream" id=7]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=1]
 resource_name = "Attack"
 length = 0.6
 loop = true
@@ -49,8 +49,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "explode"
+[sub_resource type="Animation" id=2]
 step = 0.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -139,7 +138,7 @@ tracks/6/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 4.5
 loop = true
 step = 0.25
@@ -156,8 +155,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 7, 6, 7, 5 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "walk"
+[sub_resource type="Animation" id=4]
 length = 1.5
 loop = true
 step = 0.25
@@ -174,15 +172,15 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=5]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 8.38264, 15.7135 )
 
-[sub_resource type="CanvasItemMaterial" id=6]
+[sub_resource type="CanvasItemMaterial" id=7]
 blend_mode = 1
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=8]
 flag_disable_z = true
 gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
@@ -201,24 +199,24 @@ scale = Vector2( 23.5056, 10.8629 )
 pause_particles = false
 
 [node name="Anim" type="AnimationPlayer" parent="."]
-anims/Attack = SubResource( 8 )
-anims/explode = SubResource( 1 )
-anims/idle = SubResource( 2 )
-anims/walk = SubResource( 3 )
+anims/Attack = SubResource( 1 )
+anims/explode = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/walk = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0.831921 )
-material = SubResource( 4 )
+self_modulate = Color( 1, 1, 1, 0.989789 )
+material = SubResource( 5 )
 rotation = 0.0110197
 texture = ExtResource( 2 )
 flip_h = true
 hframes = 11
-frame = 8
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.50858, 0.207165 )
 rotation = -6.28319
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="DetectFloorLeft" type="RayCast2D" parent="."]
 position = Vector2( -6.96549, -3.48735 )
@@ -244,14 +242,14 @@ cast_to = Vector2( 0, 30 )
 
 [node name="Explosion" type="Particles2D" parent="."]
 self_modulate = Color( 1, 1, 1, 0.12 )
-material = SubResource( 6 )
+material = SubResource( 7 )
 emitting = false
 amount = 32
 lifetime = 0.5
 one_shot = true
 speed_scale = 1.2
 explosiveness = 0.1
-process_material = SubResource( 7 )
+process_material = SubResource( 8 )
 texture = ExtResource( 3 )
 
 [node name="SoundHit" type="AudioStreamPlayer2D" parent="."]
@@ -269,6 +267,7 @@ position = Vector2( 0.220367, -15.646 )
 [node name="Knife atk" type="CollisionShape2D" parent="."]
 position = Vector2( 19.5587, -4.88581 )
 shape = SubResource( 9 )
+disabled = true
 
 [node name="Knife hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
