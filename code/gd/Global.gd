@@ -1,13 +1,16 @@
 extends Node
 
+const scenes_folder = "code/tscn/"
+const settings_file = "user://settings.conf"
+const save_file_folder = "user://" #%appdata%/Godot/app_userdata/Mayan 300 <- Temporal title
+
 var current_scene = null
-var current_save_file = null
-var settings_file = "user://settings.conf"
-var save_file_folder = "user://"
+
 var language = null
 var music_v = null
 var sound_v = null
 var dialogue_v = null
+var current_save_file = null
 
 func _ready():
 	var root = get_tree().get_root()
@@ -80,35 +83,51 @@ func load_settings():
 
 func save_file(player, name):
 	var file = File.new()
-	print("POO POO")
 	file.open((save_file_folder + name + ".save"), File.WRITE)
+
+	# SAVE SCENE
+	file.store_var(current_scene.name, true)
+
+	# SAVE PLAYER ATTRIBUTES
 	file.store_var(player.HEALTH, true)
-	file.store_var(player, true)
+	file.store_var(player.position.x, true)
+	file.store_var(player.position.y, true)
 	file.close()
 
-	print("save current life: " + str(player.HEALTH))
-	print("save current x: " + str(player.position.x))
-	print("save current y: " + str(player.position.y))
+	#SAVE DECISIONS TREE (Not sure how should i develop this...)
 
-	#current_save_file = name
-	#save_settings()
+	current_save_file = name
+	save_settings()
+	
 	print("saving file")
 
 
-func load_file(player, name):
+func load_file(name):
 	var file = File.new()
+
 	if file.file_exists(save_file_folder + name + ".save"):
 		file.open((save_file_folder + name + ".save"), File.READ)
+
+		#GET SCENE
+		var scene_reference = file.get_var(true)
+
+		#GET PLAYER ATTRIBUTES
 		var player_reference_HEALTH = file.get_var(true)
-		var player_reference = file.get_var(true)
+		var player_reference_x = file.get_var(true)
+		var player_reference_y = file.get_var(true)
+
+		#GET CURRENT DECISIONS TREE
+
 		file.close()
 
-		print("load life: " + str(player_reference_HEALTH))
-		print("load x: " + str(player_reference.position.x))
-		print("load y: " + str(player_reference.position.y))
-		player.position.x = player_reference.position.x
-		player.position.y = player_reference.position.y
+		#SCENE TO LOAD
+		goto_scene(scenes_folder + scene_reference + ".tscn")
+
+		var player = current_scene.get_node("Player")
+		print(player)
 		player.HEALTH = player_reference_HEALTH
+		player.position.x = player_reference_x
+		player.position.y = player_reference_y
 	else:
 		print("WTF STOP HACKING PLOX GGEZBBQROFLCOPTERXD")
 	print("loading file")

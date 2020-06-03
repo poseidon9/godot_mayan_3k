@@ -94,17 +94,20 @@ func _physics_process(delta):
 		target_speed += 1
 
 	if (Input.is_key_pressed(KEY_G)):
-			Global.save_file(self, "test")
+		Global.save_file(self, "test")
 
 	if (Input.is_key_pressed(KEY_L)):
-		Global.load_file(self, "test")
+		Global.load_file("test")
+
+	if (Input.is_key_pressed(KEY_T)):
+		print(Global.current_scene.name)
 
 	target_speed *= WALK_SPEED
 	linear_vel.x = lerp(linear_vel.x, target_speed, 0.1)
 
 	# Jumping
 	#if on_floor and Input.is_action_just_pressed("jump") :
-	if Input.is_action_just_pressed("jump") :
+	if Input.is_action_just_pressed("jump") and not DASHING:
 		add_action("jump")
 		if on_floor:
 			linear_vel.y = -JUMP_SPEED
