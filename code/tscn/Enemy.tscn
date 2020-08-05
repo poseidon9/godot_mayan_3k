@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 10 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("KnifeHit/HitBox:disabled")
+tracks/1/path = NodePath("Sprite/KnifeHit/HitBox:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -37,7 +37,7 @@ tracks/1/keys = {
 "values": [ true, false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("KnifeHit/Sound:playing")
+tracks/2/path = NodePath("Sprite/KnifeHit/Sound:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -188,6 +188,12 @@ tracks/0/keys = {
 
 [sub_resource type="CanvasItemMaterial" id=5]
 
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 14.4827, 18.0647 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 8.97982, 2.82913 )
+
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 8.38264, 15.7135 )
 
@@ -200,12 +206,6 @@ gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 1.23621
-
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 14.4827, 18.0647 )
-
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 8.97982, 2.82913 )
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 4
@@ -223,13 +223,36 @@ anims/idle = SubResource( 3 )
 anims/walk = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0.116828 )
+self_modulate = Color( 1, 1, 1, 0.801816 )
 material = SubResource( 5 )
 rotation = 0.0110197
 texture = ExtResource( 2 )
 flip_h = true
 hframes = 11
 frame = 1
+
+[node name="AttackRange" type="Area2D" parent="Sprite"]
+rotation = -0.0110197
+scale = Vector2( 1, 1 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="Range" type="CollisionShape2D" parent="Sprite/AttackRange"]
+position = Vector2( 23.7115, -2.0783 )
+shape = SubResource( 9 )
+
+[node name="KnifeHit" type="Area2D" parent="Sprite"]
+rotation = -0.0110197
+scale = Vector2( 1, 1 )
+
+[node name="HitBox" type="CollisionShape2D" parent="Sprite/KnifeHit"]
+position = Vector2( 19.5587, -4.88581 )
+shape = SubResource( 10 )
+
+[node name="Sound" type="AudioStreamPlayer" parent="Sprite/KnifeHit"]
+stream = ExtResource( 7 )
+volume_db = -16.735
+pitch_scale = 1.02
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.50858, 0.207165 )
@@ -281,25 +304,5 @@ volume_db = -5.0
 
 [node name="FCTMgr" parent="." instance=ExtResource( 6 )]
 position = Vector2( 0.220367, -15.646 )
-
-[node name="AttackRange" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="Range" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2( 23.7115, -2.0783 )
-shape = SubResource( 9 )
-
-[node name="KnifeHit" type="Area2D" parent="."]
-
-[node name="HitBox" type="CollisionShape2D" parent="KnifeHit"]
-position = Vector2( 19.5587, -4.88581 )
-shape = SubResource( 10 )
-disabled = true
-
-[node name="Sound" type="AudioStreamPlayer" parent="KnifeHit"]
-stream = ExtResource( 7 )
-volume_db = -16.735
-pitch_scale = 1.02
-[connection signal="body_entered" from="AttackRange" to="." method="_on_AttackRange_body_entered"]
-[connection signal="body_entered" from="KnifeHit" to="." method="_on_KnifeHit_body_entered"]
+[connection signal="body_entered" from="Sprite/AttackRange" to="." method="_on_AttackRange_body_entered"]
+[connection signal="body_entered" from="Sprite/KnifeHit" to="." method="_on_KnifeHit_body_entered"]
