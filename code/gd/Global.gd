@@ -1,6 +1,6 @@
 extends Node
 
-const scenes_folder = "code/tscn/"
+const scenes_folder = "res://code/tscn/"
 const settings_file = "user://settings.conf"
 const save_file_folder = "user://" #%appdata%/Godot/app_userdata/Mayan 300 <- Temporal title
 
@@ -28,7 +28,6 @@ func goto_scene(path):
 
 	# The solution is to defer the load to a later time, when
 	# we can be sure that no code from the current scene is running:
-
 	call_deferred("_deferred_goto_scene", path)
 
 

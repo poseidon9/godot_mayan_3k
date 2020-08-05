@@ -19,7 +19,7 @@ func _ready():
 
 
 func _on_Continue_pressed():
-	Global.goto_scene("res://code/tscn/Stage.tscn")
+	get_tree().change_scene("res://code/tscn/Stage.tscn")
 
 func _on_New_Game_pressed():
 	Global.goto_scene("res://code/tscn/Stage_prueba.tscn")
