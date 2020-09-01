@@ -6,7 +6,8 @@ const GRAVITY_VEC = Vector2(0, 900)
 const FLOOR_NORMAL = Vector2(0, -1)
 
 const STATE_WALKING = 0
-const STATE_KILLED = 1
+const STATE_ATTACKING = 1
+const STATE_KILLED = 2
 const WALK_SPEED = 70 
 
 var HEALTH = 20
@@ -56,12 +57,18 @@ func _physics_process(delta):
 
 		sprite.scale = Vector2(direction, 1.0)
 		new_anim = "walk"
+	elif state == STATE_ATTACKING:
+		new_anim = "Attack"
+
 	else:
 		new_anim = "explode"
 
 	if anim != new_anim:
 		anim = new_anim
 		($Anim as AnimationPlayer).play(anim)
+
+func attack_end():
+	state = STATE_WALKING
 
 func hit_by_bullet():
 	if state != STATE_KILLED:
@@ -74,3 +81,11 @@ func hit_by_bullet():
 		if HEALTH <= 0:
 			state = STATE_KILLED
 			CollisionShape2D.set_deferred("disabled", true)
+
+func _on_KnifeHit_body_entered(body):
+	if body.has_method("hit_by_enemy"):
+		body.call("hit_by_enemy")
+
+func _on_AttackRange_body_entered(body):
+	state = STATE_ATTACKING
+
