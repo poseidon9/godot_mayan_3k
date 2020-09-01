@@ -248,7 +248,6 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 33.0014, 509.282 )
 
 [node name="Clouds" type="ParallaxLayer" parent="."]
-visible = false
 position = Vector2( 0, 56 )
 motion_scale = Vector2( 0.1, 1 )
 motion_mirroring = Vector2( 800, 0 )
@@ -295,7 +294,8 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
 
 [node name="Sprite2" type="Sprite" parent="Clouds2"]
-position = Vector2( 0, 217 )
+position = Vector2( 176, 217 )
+scale = Vector2( 1.08594, 1 )
 texture = ExtResource( 18 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
@@ -304,7 +304,8 @@ region_rect = Rect2( 0, 0, 4096, 256 )
 motion_scale = Vector2( 0.15, 0.88 )
 
 [node name="Sprite" type="Sprite" parent="Mount8"]
-position = Vector2( 0, 340 )
+position = Vector2( 324, 340 )
+scale = Vector2( 1.1582, 1 )
 texture = ExtResource( 8 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
@@ -313,7 +314,8 @@ region_rect = Rect2( 0, 0, 4096, 256 )
 motion_scale = Vector2( 0.2, 0.84 )
 
 [node name="Sprite" type="Sprite" parent="Mount5"]
-position = Vector2( 0, 353 )
+position = Vector2( 376, 353 )
+scale = Vector2( 1.18359, 1 )
 texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
@@ -322,7 +324,8 @@ region_rect = Rect2( 0, 0, 4096, 256 )
 motion_scale = Vector2( 0.27, 0.84 )
 
 [node name="Sprite" type="Sprite" parent="Mount19"]
-position = Vector2( 0, 362 )
+position = Vector2( 336, 362 )
+scale = Vector2( 1.16406, 1 )
 texture = ExtResource( 25 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
@@ -331,7 +334,8 @@ region_rect = Rect2( 0, 0, 4096, 256 )
 motion_scale = Vector2( 0.33, 0.79 )
 
 [node name="Sprite" type="Sprite" parent="Mount4"]
-position = Vector2( 0, 350 )
+position = Vector2( 384, 350 )
+scale = Vector2( 1.1875, 1 )
 texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
@@ -340,7 +344,8 @@ region_rect = Rect2( 0, 0, 4096, 256 )
 motion_scale = Vector2( 0.38, 0.77 )
 
 [node name="Sprite" type="Sprite" parent="Mount6"]
-position = Vector2( 0, 353 )
+position = Vector2( 416, 353 )
+scale = Vector2( 1.20313, 1 )
 texture = ExtResource( 10 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
@@ -349,7 +354,8 @@ region_rect = Rect2( 0, 0, 4096, 256 )
 motion_scale = Vector2( 0.42, 0.72 )
 
 [node name="Sprite" type="Sprite" parent="Mount7"]
-position = Vector2( 0, 353 )
+position = Vector2( 432, 353 )
+scale = Vector2( 1.21094, 1 )
 texture = ExtResource( 9 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
@@ -358,7 +364,8 @@ region_rect = Rect2( 0, 0, 4096, 256 )
 motion_scale = Vector2( 0.46, 0.66 )
 
 [node name="Sprite" type="Sprite" parent="Mount2"]
-position = Vector2( 0, 353 )
+position = Vector2( 616, 353 )
+scale = Vector2( 1.30078, 1 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
@@ -367,7 +374,8 @@ region_rect = Rect2( 0, 0, 4096, 256 )
 motion_scale = Vector2( 0.5, 0.63 )
 
 [node name="Sprite" type="Sprite" parent="Mount14"]
-position = Vector2( 48, 353 )
+position = Vector2( 336, 353 )
+scale = Vector2( 1.14063, 1 )
 texture = ExtResource( 9 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )
@@ -376,7 +384,8 @@ region_rect = Rect2( 0, 0, 4096, 256 )
 motion_scale = Vector2( 0.56, 0.5 )
 
 [node name="Sprite" type="Sprite" parent="Mount13"]
-position = Vector2( 0, 358 )
+position = Vector2( 444, 358 )
+scale = Vector2( 1.2168, 1 )
 texture = ExtResource( 16 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 256 )

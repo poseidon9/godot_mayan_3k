@@ -12,8 +12,7 @@
 [ext_resource path="res://assets/sprites/gui/mainmenu/new_game_transparent.png" type="Texture" id=10]
 [ext_resource path="res://assets/sprites/gui/mainmenu/options_transparent.png" type="Texture" id=11]
 [ext_resource path="res://assets/sprites/gui/mainmenu/24176600.jpg" type="Texture" id=12]
-
-[sub_resource type="ImageTexture" id=1]
+[ext_resource path="res://assets/sprites/gui/mainmenu/85f8de28f97468d78ca225ac3abec7d1.png" type="Texture" id=13]
 
 [node name="MainMenu" type="MarginContainer"]
 anchor_right = 1.0
@@ -38,8 +37,8 @@ rect_clip_content = true
 color = Color( 0, 0, 0, 1 )
 
 [node name="24176600" type="Sprite" parent="."]
-position = Vector2( 402.301, 262.591 )
-scale = Vector2( 0.801676, 0.488412 )
+position = Vector2( 400.805, 239.387 )
+scale = Vector2( 0.954266, 1.0211 )
 texture = ExtResource( 12 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -51,6 +50,11 @@ margin_bottom = 400.0
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 margin_right = 120.0
 margin_bottom = 320.0
+
+[node name="Sprite" type="Sprite" parent="HBoxContainer/VBoxContainer"]
+position = Vector2( 60.0665, 161.538 )
+scale = Vector2( 0.620939, 2.40544 )
+texture = ExtResource( 13 )
 
 [node name="Title" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
 margin_right = 120.0
@@ -64,6 +68,9 @@ margin_bottom = 124.0
 focus_neighbour_top = NodePath("../Exit")
 texture_normal = ExtResource( 9 )
 texture_hover = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="NewGame" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
 margin_top = 128.0
@@ -85,7 +92,7 @@ margin_right = 120.0
 margin_bottom = 256.0
 focus_neighbour_bottom = NodePath("../Title")
 texture_normal = ExtResource( 6 )
-texture_hover = SubResource( 1 )
+texture_hover = ExtResource( 6 )
 
 [node name="Version" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
 margin_top = 260.0
@@ -96,13 +103,14 @@ texture = ExtResource( 4 )
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
 visible = false
 margin_left = 124.0
-margin_right = 354.0
+margin_right = 124.0
 margin_bottom = 320.0
 
 [node name="Illustration" type="TextureRect" parent="HBoxContainer/CenterContainer"]
 visible = false
+margin_left = -115.0
 margin_top = 85.0
-margin_right = 230.0
+margin_right = 115.0
 margin_bottom = 235.0
 texture = ExtResource( 3 )
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
