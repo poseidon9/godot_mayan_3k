@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://code/tileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://code/tscn/Coin.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://code/tscn/ParallaxBg.tscn" type="PackedScene" id=6]
 [ext_resource path="res://code/tscn/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/audio/music/music.ogg" type="AudioStream" id=8]
+[ext_resource path="res://code/tscn/OmarTempWall.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=1]
 
@@ -393,3 +394,6 @@ __meta__ = {
 stream = ExtResource( 8 )
 volume_db = -10.0
 autoplay = true
+
+[node name="OmarTempWall" parent="." instance=ExtResource( 9 )]
+position = Vector2( 159.045, 677.077 )

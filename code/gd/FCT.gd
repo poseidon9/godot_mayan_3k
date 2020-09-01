@@ -21,3 +21,21 @@ func show_value(value, travel, duration, spread, crit=false):
 	$Tween.start()
 	yield($Tween, "tween_all_completed")
 	queue_free()
+
+func show_speech_bubble(value, travel, duration, spread):
+	text = value
+	# For scaling, set the pivot offset to the center.
+	rect_pivot_offset = rect_size / 2
+	var movement = travel.rotated(0)
+	# Animate the position.
+	$Tween.interpolate_property(self, "rect_position", rect_position,
+			rect_position + movement, duration,
+			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	# Animate the fade-out.
+	$Tween.interpolate_property(self, "modulate:a", 1.0, 0.0, duration,
+			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	modulate = Color(1, 0, 0)
+	$Tween.start()
+	yield($Tween, "tween_all_completed")
+	queue_free()
+

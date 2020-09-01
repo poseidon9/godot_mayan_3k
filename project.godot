@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://code/gd/moving_platform.gd"
 }, {
+"base": "Node2D",
+"class": "OmarTempWall",
+"language": "GDScript",
+"path": "res://code/gd/OmarTempWall.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "Coin": "",
 "Enemy": "",
 "MovingPlatform": "",
+"OmarTempWall": "",
 "Player": ""
 }
 

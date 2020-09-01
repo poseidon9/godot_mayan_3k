@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://code/gd/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/enemies/enemy.png" type="Texture" id=2]
@@ -55,7 +55,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.6 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -188,19 +188,25 @@ tracks/0/keys = {
 
 [sub_resource type="CanvasItemMaterial" id=5]
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 14.4827, 18.0647 )
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 100, -20, 0, 0, 100, 20 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=7]
+radius = 150.0
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 8.99518, 18.0647 )
+
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8.97982, 2.82913 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 8.38264, 15.7135 )
 
-[sub_resource type="CanvasItemMaterial" id=7]
+[sub_resource type="CanvasItemMaterial" id=11]
 blend_mode = 1
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=12]
 flag_disable_z = true
 gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
@@ -212,6 +218,7 @@ collision_layer = 4
 script = ExtResource( 1 )
 
 [node name="Enabler" type="VisibilityEnabler2D" parent="."]
+visible = false
 position = Vector2( -4.97543, 15.2475 )
 scale = Vector2( 23.5056, 10.8629 )
 pause_particles = false
@@ -229,25 +236,50 @@ rotation = 0.0110197
 texture = ExtResource( 2 )
 flip_h = true
 hframes = 11
-frame = 1
+
+[node name="DetectionRange" type="Area2D" parent="Sprite"]
+visible = false
+rotation = -0.0110197
+collision_layer = 0
+collision_mask = 2
+
+[node name="Range" type="CollisionShape2D" parent="Sprite/DetectionRange"]
+position = Vector2( -2.58338e-09, -2.77389 )
+shape = SubResource( 6 )
+
+[node name="AlertRange" type="Area2D" parent="Sprite"]
+visible = false
+rotation = -0.0110197
+input_pickable = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="Range" type="CollisionShape2D" parent="Sprite/AlertRange"]
+position = Vector2( 3.88345, -2.21911 )
+shape = SubResource( 7 )
 
 [node name="AttackRange" type="Area2D" parent="Sprite"]
+visible = false
 rotation = -0.0110197
-scale = Vector2( 1, 1 )
+input_pickable = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="Range" type="CollisionShape2D" parent="Sprite/AttackRange"]
-position = Vector2( 23.7115, -2.0783 )
-shape = SubResource( 9 )
+position = Vector2( 19.6629, -2.0783 )
+shape = SubResource( 8 )
 
 [node name="KnifeHit" type="Area2D" parent="Sprite"]
+visible = false
 rotation = -0.0110197
-scale = Vector2( 1, 1 )
+input_pickable = false
+collision_layer = 0
+collision_mask = 2
 
 [node name="HitBox" type="CollisionShape2D" parent="Sprite/KnifeHit"]
 position = Vector2( 19.5587, -4.88581 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
+disabled = true
 
 [node name="Sound" type="AudioStreamPlayer" parent="Sprite/KnifeHit"]
 stream = ExtResource( 7 )
@@ -255,54 +287,65 @@ volume_db = -16.735
 pitch_scale = 1.02
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 2.50858, 0.207165 )
 rotation = -6.28319
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="DetectFloorLeft" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( -6.96549, -3.48735 )
 enabled = true
 cast_to = Vector2( 0, 30 )
 
 [node name="DetectWallLeft" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( 11.9263, -5.38906 )
 rotation = 1.5708
 enabled = true
 cast_to = Vector2( 0, 20 )
 
 [node name="DetectWallRight" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( -5.94266, -5.26204 )
 rotation = -1.5708
 enabled = true
 cast_to = Vector2( 0, 20 )
 
 [node name="DetectFloorRight" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( 11.9804, -1.78428 )
 enabled = true
 cast_to = Vector2( 0, 30 )
 
 [node name="Explosion" type="Particles2D" parent="."]
+visible = false
 self_modulate = Color( 1, 1, 1, 0.12 )
-material = SubResource( 7 )
+material = SubResource( 11 )
 emitting = false
 amount = 32
 lifetime = 0.5
 one_shot = true
 speed_scale = 1.2
 explosiveness = 0.1
-process_material = SubResource( 8 )
+process_material = SubResource( 12 )
 texture = ExtResource( 3 )
 
 [node name="SoundHit" type="AudioStreamPlayer2D" parent="."]
+visible = false
 stream = ExtResource( 4 )
 volume_db = -4.0
 
 [node name="SoundExplode" type="AudioStreamPlayer2D" parent="."]
+visible = false
 position = Vector2( 4.84279, -13.7535 )
 stream = ExtResource( 5 )
 volume_db = -5.0
 
 [node name="FCTMgr" parent="." instance=ExtResource( 6 )]
 position = Vector2( 0.220367, -15.646 )
+[connection signal="body_entered" from="Sprite/DetectionRange" to="." method="_on_DetectionRange_body_entered"]
+[connection signal="body_exited" from="Sprite/DetectionRange" to="." method="_on_DetectionRange_body_exited"]
 [connection signal="body_entered" from="Sprite/AttackRange" to="." method="_on_AttackRange_body_entered"]
+[connection signal="body_exited" from="Sprite/AttackRange" to="." method="_on_AttackRange_body_exited"]
 [connection signal="body_entered" from="Sprite/KnifeHit" to="." method="_on_KnifeHit_body_entered"]
